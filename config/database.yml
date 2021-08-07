@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: mushroom_api_production
-  username: mushroom_api
-  password: <%= ENV['MUSHROOM_API_DATABASE_PASSWORD'] %>
+#  username: mushroom_api
+#  password: <%= ENV['MUSHROOM_API_DATABASE_PASSWORD'] %>

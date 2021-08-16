@@ -8,8 +8,7 @@ class MushroomsController < ApplicationController
     end
 
     def create
-        admin = User.find(12)
-        if @user === admin
+        if @user.admin
             mushroom = Mushroom.new(mushroom_params)
             if mushroom.save
                 render json: {data: mushroom}

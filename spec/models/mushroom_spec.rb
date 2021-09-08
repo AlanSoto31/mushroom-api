@@ -1,19 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Mushroom, type: :model do
-  subject { Mushroom.new(
-    name: 'Oyster', 
-    img_url: 'https://en.wikipedia.org/wiki/Pleurotus_ostreatus', 
-    description: 'description', 
-    scientific_name: 'Oyster operandis', 
-    wiki_url:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Neutari_%28oyster_mushroom%29.jpg/150px-Neutari_%28oyster_mushroom%29.jpg', 
-    edibility: 'taste', 
-    dimensions: '13 x 5 cm', 
-    location: 'Worldwide'
-    ) }
+  subject do
+    Mushroom.new(
+      name: 'Oyster',
+      img_url: 'https://en.wikipedia.org/wiki/Pleurotus_ostreatus',
+      description: 'description',
+      scientific_name: 'Oyster operandis',
+      wiki_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Neutari_%28oyster_mushroom%29.jpg/150px-Neutari_%28oyster_mushroom%29.jpg',
+      edibility: 'taste',
+      dimensions: '13 x 5 cm',
+      location: 'Worldwide'
+    )
+  end
 
-  context 'Validations' do
-    
+  context 'name validations' do
     it 'name must be present' do
       expect(subject).to be_valid
       subject.name = nil
@@ -27,7 +28,9 @@ RSpec.describe Mushroom, type: :model do
       subject.name = 'aaaaaaaaaaaaaaaa'
       expect(subject).to_not be_valid
     end
+  end
 
+  context 'img_url validations' do
     it 'img_url must be present' do
       expect(subject).to be_valid
       subject.img_url = nil
@@ -39,7 +42,9 @@ RSpec.describe Mushroom, type: :model do
       subject.img_url = 'www.n.com'
       expect(subject).to_not be_valid
     end
+  end
 
+  context 'description validations' do
     it 'description must be present' do
       expect(subject).to be_valid
       subject.description = nil
@@ -50,10 +55,18 @@ RSpec.describe Mushroom, type: :model do
       expect(subject).to be_valid
       subject.description = 'good'
       expect(subject).to_not be_valid
-      subject.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      subject.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.'
       expect(subject).to_not be_valid
     end
+  end
 
+  context 'scientific_name validations' do
     it 'scientific_name must be present' do
       expect(subject).to be_valid
       subject.scientific_name = nil
@@ -67,7 +80,9 @@ RSpec.describe Mushroom, type: :model do
       subject.scientific_name = 'aaaaaaaaaaaaaaaaaaaaaaaa'
       expect(subject).to_not be_valid
     end
+  end
 
+  context 'wiki_url validations' do
     it 'wiki_url must be present' do
       expect(subject).to be_valid
       subject.wiki_url = nil
@@ -79,7 +94,9 @@ RSpec.describe Mushroom, type: :model do
       subject.wiki_url = 'www.n.com'
       expect(subject).to_not be_valid
     end
+  end
 
+  context 'edibility validations' do
     it 'edibility must be present' do
       expect(subject).to be_valid
       subject.edibility = nil
@@ -91,7 +108,9 @@ RSpec.describe Mushroom, type: :model do
       subject.edibility = 'a'
       expect(subject).to_not be_valid
     end
+  end
 
+  context 'dimensions validations' do
     it 'dimensions must be present' do
       expect(subject).to be_valid
       subject.dimensions = nil
@@ -103,7 +122,9 @@ RSpec.describe Mushroom, type: :model do
       subject.dimensions = 'a'
       expect(subject).to_not be_valid
     end
+  end
 
+  context 'location validations' do
     it 'location must be present' do
       expect(subject).to be_valid
       subject.location = nil
@@ -115,6 +136,5 @@ RSpec.describe Mushroom, type: :model do
       subject.location = 'a'
       expect(subject).to_not be_valid
     end
-  
   end
 end

@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      render json: { data: user }
+      render json: { data: user }, status: :created
     else
-      render json: { data: user.errors }
+      render json: { data: user.errors }, status: :unprocessable_entity
     end
   end
 

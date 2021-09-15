@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_171536) do
     t.string "name"
     t.string "img_url"
     t.string "description"
+    t.string "season"
     t.string "scientific_name"
     t.string "wiki_url"
     t.string "edibility"
